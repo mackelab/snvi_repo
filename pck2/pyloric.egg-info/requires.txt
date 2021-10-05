@@ -1,0 +1,8 @@
+tqdm
+cython
+numpy
+pandas
+sbi
+scipy
+svgutils
+torchdiffeq

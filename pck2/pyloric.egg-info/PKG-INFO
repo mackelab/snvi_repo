@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: pyloric
+Version: 0.0.0
+Summary: Simulator of the pyloric network in the STG.
+Home-page: https://github.com/mackelab/pyloric
+Author: Michael Deistler
+Author-email: michael.deistler@uni-tuebingen.de
+License: AGPLv3
+Keywords: pyloric stg cython simulator
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Adaptive Technologies
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6.0
+Description-Content-Type: text/markdown
+
+Simulator of the pyloric network in the STG.
+
