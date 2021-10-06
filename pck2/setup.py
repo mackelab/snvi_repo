@@ -15,8 +15,8 @@ NAME = "pyloric"
 DESCRIPTION = "Simulator of the pyloric network in the STG."
 KEYWORDS = "pyloric stg cython simulator"
 URL = "https://github.com/mackelab/pyloric"
-EMAIL = "michael.deistler@uni-tuebingen.de"
-AUTHOR = "Michael Deistler"
+EMAIL = "-"
+AUTHOR = "-"
 REQUIRES_PYTHON = ">=3.6.0"
 
 REQUIRED = [
