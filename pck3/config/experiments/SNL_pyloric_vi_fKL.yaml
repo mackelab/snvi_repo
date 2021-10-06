@@ -1,0 +1,43 @@
+# @package _global_
+name: main_benchmark_pyloric
+defaults:
+  - override /task: pyloric
+  - override /method: snlvi
+
+
+evaluate_metrics: false 
+compute_predictives: false 
+hydra.launcher.timeout_min: 4440
+hydra.launcher.partition: cpu-long
+hydra.launcher.mem_gb: 64
+cpus_per_task: 32
+
+method:
+  params:
+    num_rounds: 31
+    neural_net: nsf
+    hidden_features: 50
+    simulation_batch_size: 1000
+    training_batch_size: 500
+    automatic_transforms_enabled: false
+    z_score_x: true
+    z_score_theta: true
+    simulation_filter: valid
+    num_simulations_list: [50000, 10000, 10000,10000,10000,10000, 10000, 10000,10000,10000, 10000, 10000, 10000,10000,10000,10000, 10000, 10000,10000,10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000]
+    cache_inf: inf_pyloric_with_classifier_REALLY_FINAL
+task:
+  num_simulations: 350000
+  num_observation: 2
+  num_posterior_samples: 10000
+  vi_parameters:
+    flow: "affine_autoregressive"
+    num_flows: 5
+    loss: "forward_kl"
+    n_particles: 1024
+    learning_rate: 1e-3
+    gamma: 0.999
+    max_num_iters: 1000
+    min_num_iters: 500
+    check_for_convergence: True
+    sampling_method: ir
+    eps: 1e-6

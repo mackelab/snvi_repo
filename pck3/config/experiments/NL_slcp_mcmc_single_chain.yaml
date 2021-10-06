@@ -1,0 +1,16 @@
+# @package _global_
+defaults:
+  - override /task: slcp
+  - override /method: snlmcmc
+  
+
+method:
+  params:
+    mcmc_method: "slice_np"
+    mcmc_parameters:
+      thin: 10
+      warmup_steps: 100
+      init_strategy: sir
+      sir_batch_size: 1000
+      sir_num_batches: 100
+      num_chains: 1

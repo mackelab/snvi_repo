@@ -1,0 +1,17 @@
+# @package _global_
+
+defaults:
+  - override /task: slcp
+  - override /method: snrvi
+
+task:
+  vi_parameters:
+    loss: iwelbo
+    n_particles: 32
+    K: 8
+    reduce_variance: False
+    max_num_iters: 1000
+    min_num_iters: 500
+    bound: 15
+    count_bins: 15
+    sampling_method: ir

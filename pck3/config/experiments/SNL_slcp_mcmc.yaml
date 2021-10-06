@@ -1,0 +1,8 @@
+# @package _global_
+defaults:
+  - override /task: slcp
+  - override /method: snlmcmc
+  
+method:
+  params:
+    num_rounds: 10

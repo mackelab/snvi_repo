@@ -1,0 +1,17 @@
+# @package _global_
+
+defaults:
+  - override /task: two_moons
+  - override /method: snlvi
+
+task:
+  vi_parameters:
+    loss: renjey_divergence
+    n_particles: 256
+    max_num_iters: 1000
+    min_num_iters: 500
+    bound: 15
+    count_bins: 15
+    alpha: 0.1
+    eps: 5e-6
+    unbiased: True

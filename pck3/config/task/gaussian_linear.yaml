@@ -1,0 +1,20 @@
+name: gaussian_linear
+num_simulations: 1000
+num_observation: 1
+num_posterior_samples: 10000
+vi_parameters:
+  flow: "affine_autoregressive"
+  num_flows: 5
+  num_components: 1
+  loss: "elbo"
+  n_particles: 256
+  K: 8
+  alpha: 0.5
+  proposal: "q"
+  learning_rate: 1e-3
+  gamma: 0.999
+  max_num_iters: 2000
+  check_for_convergence: True
+  show_progress_bars: True
+  reduce_variance: False
+  sampling_method: "naive"

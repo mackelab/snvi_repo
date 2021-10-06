@@ -1,0 +1,12 @@
+# @package _global_
+
+defaults:
+  - override /task: bernoulli_glm
+  - override /method: snlvi
+
+task:
+  vi_parameters:
+    loss: elbo
+    n_particles: 256
+    max_num_iters: 1000
+    min_num_iters: 500

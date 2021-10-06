@@ -1,0 +1,6 @@
+sbi
+sbibm
+matplotlib
+seaborn
+hydra-core
+hydra-submitit-launcher

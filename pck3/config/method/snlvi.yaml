@@ -1,0 +1,15 @@
+method_name: snlvi
+run: sbivibm.runs.benchmark_snlvi
+device: cpu
+params:
+  num_rounds: 1
+  neural_net: maf
+  hidden_features: 50
+  simulation_batch_size: 1000
+  training_batch_size: 1000
+  automatic_transforms_enabled: false
+  z_score_x: true
+  z_score_theta: true
+  simulation_filter: identity
+  samples_to_accept: None
+  num_simulations_list: None

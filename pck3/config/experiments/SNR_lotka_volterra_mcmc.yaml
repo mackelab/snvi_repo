@@ -1,0 +1,8 @@
+# @package _global_
+defaults:
+  - override /task: lotka_volterra
+  - override /method: snrmcmc
+  
+method:
+  params:
+    num_rounds: 10

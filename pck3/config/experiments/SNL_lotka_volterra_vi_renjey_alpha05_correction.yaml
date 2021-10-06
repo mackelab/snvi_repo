@@ -1,0 +1,21 @@
+# @package _global_
+
+defaults:
+  - override /task: lotka_volterra
+  - override /method: snlvi
+
+task:
+  vi_parameters:
+    loss: renjey_divergence
+    n_particles: 256
+    max_num_iters: 1000
+    min_num_iters: 100
+    bound: 15
+    count_bins: 15
+    alpha: 0.5
+    eps: 5e-6
+    sampling_method: ir
+
+method:
+  params:
+    num_rounds: 10

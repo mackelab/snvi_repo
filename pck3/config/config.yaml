@@ -1,0 +1,12 @@
+name: benchmark
+evaluate_metrics: True
+compute_predictives: True
+store_results: True
+
+defaults:
+  - method: snlvi 
+  - task: two_moons
+  - experiments: none
+  - override hydra/launcher: submitit_slurm
+
+seed: 0

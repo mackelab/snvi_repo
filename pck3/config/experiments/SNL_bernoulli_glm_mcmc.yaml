@@ -1,0 +1,8 @@
+# @package _global_
+defaults:
+  - override /task: bernoulli_glm
+  - override /method: snlmcmc
+  
+method:
+  params:
+    num_rounds: 10

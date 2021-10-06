@@ -1,0 +1,20 @@
+# @package _global_
+
+defaults:
+  - override /task: two_moons
+  - override /method: snrvi
+
+method:
+  params:
+    num_rounds: 10
+
+task:
+  vi_parameters:
+    loss: forward_kl
+    n_particles: 256
+    proposal: "q"
+    max_num_iters: 1000
+    min_num_iters: 100
+    bound: 15
+    count_bins: 15
+    sampling_method: ir

@@ -1,0 +1,17 @@
+# @package _global_
+
+defaults:
+  - override /task: two_moons
+  - override /method: snlvi
+
+task:
+  vi_parameters:
+    loss: forward_kl
+    num_components: 4
+    num_flows: 2
+    n_particles: 64
+    max_num_iters: 2000
+    min_num_iters: 500
+    bound: 15
+    count_bins: 15
+    eps: 5e-6

@@ -1,0 +1,19 @@
+# @package _global_
+
+defaults:
+  - override /task: bernoulli_glm
+  - override /method: snrvi
+
+task:
+  vi_parameters:
+    loss: forward_kl
+    n_particles: 256
+    proposal: "q"
+    max_num_iters: 1000
+    min_num_iters: 100
+    sampling_method: ir
+
+
+method:
+  params:
+    num_rounds: 10

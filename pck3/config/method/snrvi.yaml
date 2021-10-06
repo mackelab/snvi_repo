@@ -1,0 +1,14 @@
+method_name: snrvi
+run: sbivibm.runs.benchmark_snrvi
+device: cpu
+params:
+  num_rounds: 1
+  neural_net: resnet
+  hidden_features: 50
+  simulation_batch_size: 1000
+  training_batch_size: 1000
+  num_atoms: 10
+  automatic_transforms_enabled: false
+  z_score_x: true
+  z_score_theta: true
+  variant: B

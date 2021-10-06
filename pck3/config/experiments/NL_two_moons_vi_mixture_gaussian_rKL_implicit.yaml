@@ -1,0 +1,18 @@
+# @package _global_
+
+defaults:
+  - override /task: two_moons
+  - override /method: snlvi
+
+task:
+  vi_parameters:
+    loss: elbo
+    flow: affine_tril
+    num_components: 50
+    num_flows: 1
+    rsample: True
+    n_particles: 128
+    max_num_iters: 4000
+    min_num_iters: 2000
+    gamma: 1.
+    eps: 5e-7

@@ -1,0 +1,10 @@
+setup.cfg
+setup.py
+sbivibm/__init__.py
+sbivibm.egg-info/PKG-INFO
+sbivibm.egg-info/SOURCES.txt
+sbivibm.egg-info/dependency_links.txt
+sbivibm.egg-info/requires.txt
+sbivibm.egg-info/top_level.txt
+scripts/sbivibm
+scripts/sbiviplot
