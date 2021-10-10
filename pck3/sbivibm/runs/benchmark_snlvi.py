@@ -83,8 +83,6 @@ Returns:
 
     if training_batch_size > num_simulations_per_round:
         training_batch_size = num_simulations_per_round
-        if isinstance(samples_to_accept, List) and isinstance(samples_to_accept[0], int) and training_batch_size < samples_to_accept[0]:
-            training_batch_size = samples_to_accept[0]
             
         log.warn("Reduced training_batch_size to num_simulation_per_round")
 
@@ -145,15 +143,24 @@ Returns:
 
             classifier = train_classifier(classifier, classification_data,epochs=200)
 
-
-        density_estimator = inference_method.append_simulations(
+        if simulation_filter != "identity":
+            density_estimator = inference_method.append_simulations(
             theta[idx], x[idx], from_round=r
-        ).train(
-            training_batch_size=training_batch_size,
-            retrain_from_scratch_each_round=False,
-            discard_prior_samples=False,
-            show_train_summary=True,
-        )
+            ).train(
+                training_batch_size=training_batch_size,
+                retrain_from_scratch_each_round=False,
+                discard_prior_samples=False,
+                show_train_summary=True,
+            )
+        else:
+            density_estimator = inference_method.append_simulations(
+                theta, x, from_round=r
+            ).train(
+                training_batch_size=training_batch_size,
+                retrain_from_scratch_each_round=False,
+                discard_prior_samples=False,
+                show_train_summary=True,
+            )
         # Currently direct handling with density estimators leads to error
         posterior = inference_method.build_posterior(
             sample_with="vi",vi_parameters=vi_parameters

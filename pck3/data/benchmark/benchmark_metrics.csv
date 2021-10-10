@@ -1,0 +1,2 @@
+task,algorithm,loss,num_rounds,num_observation,num_simulations,folder,time,parameters
+pyloric,SNLVI,forward_kl,31,2,350000,35094a64-a664-4329-bde0-97fc4362fbbd,97140.4931435585,"{'flow': 'affine_autoregressive', 'num_flows': 5, 'num_components': 1, 'loss': 'forward_kl', 'n_particles': 1024, 'K': 8, 'alpha': 0.5, 'proposal': 'q', 'learning_rate': 0.001, 'gamma': 0.999, 'max_num_iters': 1000, 'check_for_convergence': True, 'show_progress_bars': True, 'reduce_variance': False, 'sampling_method': 'ir', 'min_num_iters': 500, 'eps': 1e-06}"

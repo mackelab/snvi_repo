@@ -3,8 +3,8 @@ Name: pyloric
 Version: 0.0.0
 Summary: Simulator of the pyloric network in the STG.
 Home-page: https://github.com/mackelab/pyloric
-Author: Michael Deistler
-Author-email: michael.deistler@uni-tuebingen.de
+Author: -
+Author-email: -
 License: AGPLv3
 Keywords: pyloric stg cython simulator
 Platform: UNKNOWN

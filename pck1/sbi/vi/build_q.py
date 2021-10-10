@@ -7,7 +7,6 @@ from .divergence_optimizers import (
     TailAdaptivefDivergenceOptimizer,
     ForwardKLOptimizer,
     FDivergenceOptimizer,
-    make_sure_nothing_in_cache,
 )
 from sbi.utils.torchutils import (
     atleast_2d_float32_tensor,
@@ -43,7 +42,6 @@ def expectation(
         method: Method either naive (just using the variatioanl posterior), is
         (importance sampling) or psis (pareto smoothed importance sampling).
     """
-    # TODO use vi_parameter attribute...
     samples = posterior.sample((num_samples,))
     if method == "naive":
         return f(samples).mean(0)
@@ -80,7 +78,6 @@ def train_posterior(
     learning_rate: float = 1e-3,
     gamma: float = 0.999,
     max_num_iters: Optional[int] = 2000,
-    min_num_iters: Optional[int] = 10,
     clip_value: Optional[float] = 5.0,
     warm_up_rounds: int = 100,
     retrain_from_scratch: bool = False,
@@ -110,7 +107,7 @@ def train_posterior(
         posterior._q = build_q(
             posterior._prior.event_shape,
             posterior._prior.support,
-            **posterior.vi_parameters,
+            **posterior._flow_paras,
         )
         posterior._optimizer = build_optimizer(
             posterior,
@@ -138,7 +135,7 @@ def train_posterior(
     x = atleast_2d_float32_tensor(posterior._x_else_default_x(x)).to(posterior._device)
     if not posterior._allow_iid_x:
         posterior._ensure_single_x(x)
-    posterior._ensure_x_consistent_with_x_shape(x)
+    posterior._ensure_x_consistent_with_default_x(x)
 
     # Optimize
     posterior._optimizer.update({**locals(), **kwargs})
@@ -156,7 +153,7 @@ def train_posterior(
             iters.set_description("Warmup phase, this takes some seconds...")
         optimizer.warm_up(warm_up_rounds)
 
-    for i in iters:
+    for _ in iters:
         optimizer.step(x)
         mean_loss, std_loss = optimizer.get_loss_stats()
         # Update progress bar
@@ -165,26 +162,18 @@ def train_posterior(
                 f"Loss: {np.round(mean_loss, 2)} Std: {np.round(std_loss, 2)}"
             )
         # Check for convergence
-        if check_for_convergence and i > min_num_iters:
+        if check_for_convergence:
             if optimizer.converged():
                 if show_progress_bar:
                     print(f"\nConverged with loss: {np.round(mean_loss, 2)}")
                 break
     if show_progress_bar:
-        try:
-            k = round(float(optimizer.evaluate(x)), 3)
-            print(f"Quality Score: {k} (smaller values are good, should be below 1)")
-            if k > 1:
-                warn(
-                    "The quality of the variational posterior seems to be bad, increase the training iterations or consider a different variational family!"
-                )
-        except:
-            posterior._q = build_q(
-                posterior._prior.event_shape,
-                posterior._prior.support,
-                **posterior.vi_parameters,
+        k = round(float(optimizer.evaluate(x)), 3)
+        print(f"Quality Score: {k} (smaller values are good, should be below 1)")
+        if k > 1:
+            warn(
+                "The quality of the variational posterior seems to be bad, increase the training iterations or consider a different variational family!"
             )
-            posterior._optimizer.q = posterior._q
 
 
 def build_q(

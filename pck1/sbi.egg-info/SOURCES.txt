@@ -8,6 +8,7 @@ sbi.egg-info/SOURCES.txt
 sbi.egg-info/dependency_links.txt
 sbi.egg-info/requires.txt
 sbi.egg-info/top_level.txt
+sbi/.vscode/settings.json
 sbi/analysis/__init__.py
 sbi/analysis/conditional_density.py
 sbi/analysis/plot.py
@@ -54,7 +55,10 @@ sbi/score/score_loss.py
 sbi/score/score_net.py
 sbi/score/score_sampling.py
 sbi/score/score_sde.py
+sbi/score/score_vi.ipynb
 sbi/score/sspe.py
+sbi/score/test copy.ipynb
+sbi/score/test.ipynb
 sbi/score/utils.py
 sbi/simulators/__init__.py
 sbi/simulators/linear_gaussian.py
@@ -63,7 +67,6 @@ sbi/utils/__init__.py
 sbi/utils/conditional_density.py
 sbi/utils/get_nn_models.py
 sbi/utils/io.py
-sbi/utils/kde.py
 sbi/utils/metrics.py
 sbi/utils/plot.py
 sbi/utils/pyroutils.py

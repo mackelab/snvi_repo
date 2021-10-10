@@ -9,8 +9,6 @@ from sklearn.model_selection import KFold, cross_val_score
 from sklearn.neural_network import MLPClassifier
 from torch import Tensor
 
-from sbi.utils import tensor2numpy
-
 
 def c2st(
     X: Tensor,
@@ -47,8 +45,8 @@ def c2st(
         X += noise_scale * torch.randn(X.shape)
         Y += noise_scale * torch.randn(Y.shape)
 
-    X = tensor2numpy(X)
-    Y = tensor2numpy(Y)
+    X = X.cpu().numpy()
+    Y = Y.cpu().numpy()
 
     ndim = X.shape[1]
 
@@ -61,7 +59,12 @@ def c2st(
     )
 
     data = np.concatenate((X, Y))
-    target = np.concatenate((np.zeros((X.shape[0],)), np.ones((Y.shape[0],))))
+    target = np.concatenate(
+        (
+            np.zeros((X.shape[0],)),
+            np.ones((Y.shape[0],)),
+        )
+    )
 
     shuffle = KFold(n_splits=n_folds, shuffle=True, random_state=seed)
     scores = cross_val_score(clf, data, target, cv=shuffle, scoring=scoring)

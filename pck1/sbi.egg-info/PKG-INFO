@@ -1,10 +1,10 @@
 Metadata-Version: 2.1
 Name: sbi
-Version: 0.17.0
+Version: 0.16.0
 Summary: Simulation-based inference.
-Home-page: https://github.com/mackelab/sbi
+Home-page: -
 Author: -
-Author-email: sbi@mackelab.org
+Author-email: -
 License: AGPLv3
 Keywords: bayesian parameter inference system_identification simulator PyTorch
 Platform: UNKNOWN
