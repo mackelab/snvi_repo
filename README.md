@@ -1,4 +1,6 @@
-# anonymous repo ...
+# Variational methods for simulation based inference
+
+This packages contains the code for reproducing results of the SNVI paper (https://openreview.net/forum?id=kZ0UYdhqkNY).  Note that it was completely anonymized for the  double-blind review.
 
 Install the three packages using 
 ```bash
