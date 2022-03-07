@@ -1,6 +1,10 @@
 # Variational methods for simulation based inference
 
-This packages contains the code for reproducing results of the SNVI paper (https://openreview.net/forum?id=kZ0UYdhqkNY).  Note that it was completely anonymized for the  double-blind review.
+This packages contains the code for reproducing results of the SNVI paper (https://openreview.net/forum?id=kZ0UYdhqkNY).
+
+A user-friendly implementation of the algorithm is implemented in the [sbi toolbox](https://github.com/mackelab/sbi).
+
+### Installation
 
 Install the three packages using 
 ```bash
