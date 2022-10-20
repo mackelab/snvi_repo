@@ -22,3 +22,7 @@ The default for the multirun feature is a slurm-submitit launcher, which setting
 ```bash
  sbivibm -m hydra/launcher=submitit_local experiments=SNL_two_moons_vi_fKL_correction,SNL_two_moons_vi_rKL_correction
 ```
+
+### Updates
+
+In the [published version](https://openreview.net/forum?id=kZ0UYdhqkNY) of this paper, we reported a valid rate of 94% for the pyloric task, whereas the [updated version]() reports 86%. In order to achieve a valid rate of 94%, we performed further steps to refine the variational posterior after the last round. This did not involve running further simulations, but we used a different divergence, different number of particles, and more iterations for variational inference after the last round. One can achieve a valid rate of 94% with the procedure run in [this file](https://github.com/mackelab/snvi_repo/tree/main/updates/sbivibm/figures/final_figures/refined_posterior_compute_predictives.py). Code to reproduce the results shown in the main figure of the updated paper is [here](https://github.com/mackelab/snvi_repo/tree/main/updates).
